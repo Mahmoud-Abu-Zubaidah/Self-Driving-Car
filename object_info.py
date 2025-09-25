@@ -2,7 +2,7 @@ import os # library to interact with the operating system
 import cv2
 import numpy as np
 import math
-from shapely.geometry import Polygon,point
+from shapely.geometry import Polygon # library for geometric objects
 
 Areas = [
     [(200, 870), (650, 720), (1000, 720), (1270, 900)],# Middle Area

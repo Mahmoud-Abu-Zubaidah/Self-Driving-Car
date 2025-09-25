@@ -1,8 +1,7 @@
 import os # library to interact with the operating system
 import cv2 # OpenCV library for image processing
 import numpy as np # library for numerical operations
-import polars as pl # DataFrame library
-from shapely.geometry import Polygon, MultiPolygon # library for geometric objects
+from shapely.geometry import Polygon # library for geometric objects
 
 
 Base_lines = {
