@@ -25,7 +25,7 @@ def draw_polygon(image, points, color, thickness=2):
     cv2.polylines(img, [points], isClosed=True, color=color, thickness=thickness)
     return img
 
-def lainDrawer(img, DrawLane=True,FrontArea=False):
+def laneDrawer(img, DrawLane=True,FrontArea=False):
     """
     The function draws the lanes on the image based on the given parameters, wheather to draw lines or areas or both.
     NOTE: The function creates a copy from given image and returns the modified image.
@@ -229,7 +229,7 @@ def main(Image, top_objects, DrawLane, FrontArea,draw_intersection_border,segmen
     # Visualize base Lines
     
     img = draw_intersection(top_objects, img, im_width, im_height,draw_intersection_border,segment_object)
-    img = lainDrawer(img, DrawLane,FrontArea)
+    img = laneDrawer(img, DrawLane,FrontArea)
     
     if object_line:
         img = line_drawer(img, top_objects)

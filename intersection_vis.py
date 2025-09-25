@@ -20,7 +20,7 @@ def draw_polygon(image, points, color, thickness=2):
     points = np.array(points, dtype=np.int32).reshape((-1, 1, 2))
     cv2.polylines(image, [points], isClosed=True, color=color, thickness=thickness)
 
-def lainDrawer(img, DrawLane=True,FrontArea=False):
+def laneDrawer(img, DrawLane=True,FrontArea=False):
     line = img.copy()
 
     # Draw lines. Numbers are From Left to Right
@@ -108,7 +108,7 @@ def Main(Image, top_objects, DrawLane,FrontArea):
 
 
     # Visualize base Lines
-    img = lainDrawer(img, DrawLane,FrontArea)
+    img = laneDrawer(img, DrawLane,FrontArea)
 
     # Visualize Intersection
     draw_intersection(top_objects, img, im_width, im_height)
