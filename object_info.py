@@ -4,6 +4,8 @@ import numpy as np
 import math
 from shapely.geometry import Polygon # library for geometric objects
 
+# Define the areas as lists of points (x, y)
+# Polygon areas for the front of the car
 Areas = [
     [(200, 870), (650, 720), (1000, 720), (1270, 900)],# Middle Area
     [(1270, 900), (1000, 720), (1350, 750), (1800, 900)],# Right Area
@@ -223,6 +225,19 @@ def line_drawer(image, objects_coord):
 
 
 def main(Image, top_objects, DrawLane, FrontArea,draw_intersection_border,segment_object,object_line):
+    """
+    This function is the main function that calls all other functions to visualize the lanes, intersection borders, and object lines on the image.
+    params:
+    - Image: the original image
+    - top_objects: list of list coordinats [[xmin, ymin, xmax, ymax]] where coord are normalized
+    - DrawLane: boolean to draw the lanes or not
+    - FrontArea: boolean to draw the front area or not
+    - draw_intersection_border: boolean to draw the intersection borders or not
+    - segment_object: boolean to segment the intersection area or not
+    - object_line: boolean to draw the object lines or not
+    Note:
+        - The function return a copy of the original image    
+    """
     img = Image.copy()
     im_width, im_height = img.shape[0], img.shape[1]
 
@@ -240,9 +255,9 @@ def main(Image, top_objects, DrawLane, FrontArea,draw_intersection_border,segmen
 
 # if __name__ == "__main__":
 #     # Load the image
-#     image = os.path.join('Tensorflow','workspace','images', 'video', 'frames' ,'ba6b36ba-d1c9-11ef-a928-601895437905.jpg')
+#     image = os.path.join('images', 'video', 'frames' ,'ba6b36ba-d1c9-11ef-a928-601895437905.jpg')
 #     image = cv2.imread(image)
-#     # Load the top objects
+#     # This cordinates are normalized for objects detected in the image
 #     top_objects = [[0.513058066368103, 0.5096254348754883, 0.8098193407058716, 0.7756397724151611],
 #                    [0.5279399156570435, 0.45540735125541687, 0.613673210144043, 0.5090571045875549],
 #                    [0.18736574053764343, 0.772793710231781, 0.7757474184036255, 1.0],
